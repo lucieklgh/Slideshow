@@ -1,0 +1,253 @@
+
+// Work in progress...
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+header {
+	background: #405580;
+	height: 86px;
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+	opacity: .9;
+	top: 0;
+}
+
+#header-inner {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+#logo {
+	background: url(img/the-gym.png);
+	float: left;
+	width: 200px;
+	height: 60px;
+	margin: 20px;
+}
+
+
+nav {
+	float: right;
+	padding: 35px 20px 0 0;
+}
+
+#menu-icon {
+	background: url(img/icon.png) center;
+	width: 40px;
+	height: 34px;
+	display: hidden;
+}
+
+ul {
+	list-style: none;
+}
+
+nav ul li {
+	font-family: sans-serif;
+	display: inline-block;
+	padding: 10px;
+	float: left;
+	font-size: 110%;
+}
+
+nav ul li a {
+	color: orange;
+	text-decoration: none;
+	font-weight: 700;
+}
+
+a:hover {
+	text-decoration: none;
+	color: pink;
+}
+
+.current {
+	text-decoration: none;
+	color: orange;
+}
+
+.clearfix {
+	margin-top: 100px;
+}
+
+* {
+	box-sizing:border-box;
+}
+
+body {
+	font-family: Verdana,sans-serif;
+	margin:0;
+	background: #F0F0F0;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numberCount {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+
+media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1></h1>
+		<div id="header-inner">
+		<div>
+			<a href="index.html" id="logo"></a>
+			<nav>
+				<a href="#" id="menu-icon"></a>
+				<ul>
+					<li><a href="index.html" class="current">Home</a></li>
+					<li><a href="Slides_Show.html">Some Facts</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Founders</a></li>
+					<li><a href="#">Name</a></li>
+				</ul>
+			</nav>
+		</div>
+		</div>
+</header> 
+
+	<div class="clearfix"></div>
+
+<div class="slideshow-container">
+
+<div class="picSlides fade">
+  <div class="numberCount">1 / 5</div>
+  <img src="C:\Users\Gigi718\Desktop\Slideshow\pic1.JPG" style="width:100%">
+  <div class="text">One</div>
+</div>
+
+<div class="picSlides fade">
+  <div class="numberCount">2 / 5</div>
+  <img src="C:\Users\Gigi718\Desktop\Slideshow\pic2.JPG" style="width:100%">
+  <div class="text">Two</div>
+</div>
+
+<div class="picSlides fade">
+  <div class="numberCount">3 / 5</div>
+  <img src="C:\Users\Gigi718\Desktop\Slideshow\pic3.JPG" style="width:100%">
+  <div class="text">Three</div>
+</div>
+
+<div class="picSlides fade">
+  <div class="numberCount">4 / 5</div>
+  <img src="C:\Users\Gigi718\Desktop\Slideshow\pic4.JPG" style="width:100%">
+  <div class="text">Four</div>
+</div>
+
+<div class="picSlides fade">
+  <div class="numberCount">5 / 5</div>
+  <img src="C:\Users\Gigi718\Desktop\Slideshow\pic5.JPG" style="width:100%">
+  <div class="text">Five</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("picSlides");
+  var dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+}
+</script> 
+
+<footer>
+	<br>
+	<h5>
+		<a href="index.html">Home</a>-
+		<a href="#">about</a>
+		<a href="#">about</a>-
+		<a href="#">about</a>-
+		<a href="#">about</a>
+	</h5>
+
+</footer>
+<footer class="second">
+	<p&copy; The Gym, 2017.></p>
+</footer>
+
+</body>
+</html>
